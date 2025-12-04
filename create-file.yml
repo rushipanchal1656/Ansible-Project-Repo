@@ -1,0 +1,9 @@
+---
+- name: Create file on local machine
+  hosts: localhost
+  tasks:
+    - name: Create a file named "my-file.txt"
+      ansible.builtin.file:
+       path: /home/ec2-user/my-file.txt
+       state: touch
+       mode: '0755'

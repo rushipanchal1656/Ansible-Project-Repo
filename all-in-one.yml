@@ -1,0 +1,18 @@
+---
+- name: Create a directory on local machine
+  hosts: localhost
+  tasks:
+    - name: Create directory named "my-dir"
+      ansible.builtin.file: 
+        path: /root/my-new-dir
+        state: directory
+
+- name: Create file on local machine
+  hosts: localhost
+  tasks:
+    - name: Create a file named "my-new-file.txt"
+      ansible.builtin.file:
+        path: /root/my-new-dir/my-new-file.txt
+        state: touch
+        mode: '0755'
+

@@ -1,0 +1,19 @@
+---
+- name: Insatll httpd on local machine
+  hosts: localhost
+  tasks:
+    - name: Install httpd package
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable httpd service
+      ansible.builtin.systemd_service:
+        name: httpd
+        state: started
+        enabled: true    
+
+    - name: Enable httpd to start on boot
+      ansible.builtin.systemd_service:
+        name: httpd
+        enabled: true
